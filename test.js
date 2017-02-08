@@ -1,22 +1,6 @@
-var myApp = angular.module("myApp",['appBll']);
-
-/*
+var myApp = angular.module("myApp",[]);
 
 
-myApp.config(function(appConfig){
-    appConfig.appName = "mailroom";
-    appConfig.controllerLink = "http://localhost:8086/Service/";
-});
-
-myApp.controller("test",function($scope,bll){
-    var _grd = new ngCRUD(bll,"test","","","id");
-    $scope.grd = _grd;
-    $scope.title = "amit jha";
-    _grd.load();
-});
-
-
-*/
 
 myApp.directive("pdfViewer",function(){
     return {
@@ -100,10 +84,7 @@ myApp.directive("pdfViewer",function(){
 });
 
 
-myApp.controller("pdfViewer_test",function($scope,bll,appConfig){
-
-    appConfig.appName = "nokia";
-    appConfig.controllerLink = "http://localhost:8086/Service/";
+myApp.controller("pdfViewer_test",function($scope){
 
     
     $scope.title = "PDF Viewer Demo";
