@@ -1,0 +1,53 @@
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="favicon.ico">
+    
+
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <!--
+        <link href="global/font-awesome/css/font-awesome.css" rel="style"  />
+        -->
+        <link href="/assets/global/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        
+        <script type="text/javascript" src="/assets/global/ng/angular.min.js" ></script>
+        <script type="text/javascript" src="/assets/global/jquery/jquery-1.11.0.min.js"></script>
+        
+        <script type="text/javascript" src="/assets/admin/ngBll.js" ></script>         
+        <script type="text/javascript" src="/assets/global/pdfjs/pdf.js" ></script>
+        <script type="text/javascript" src="/assets/global/pdfjs/pdf.worker.js" ></script>
+        <script type="text/javascript" src="test.js" ></script>         
+        
+        
+        <link href="pdfViewer.css" rel="stylesheet" />
+        
+        
+    </head>
+     
+    <body ng-app="myApp" ng-controller="pdfViewer_test">
+        
+        <div class="container">
+            <h1>Hello : {{title}}</h1>
+            <hr />
+            <div class="row">
+                <div class="col-md-3">
+                    <ul class="list-group">
+                      <li ng-repeat="file in files" class="list-group-item"><a href="javascript:;" ng-bind="file"></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-9">
+                    <pdf-viewer file="'views/express-sample.pdf'"></pdf-viewer>
+                </div>
+            </div>
+            
+        </div>
+        <script type="text/javascript" src="/assets/global/bootstrap/js/bootstrap.min.js" ></script>
+    </body>
+    
+</html>
+

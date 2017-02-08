@@ -1,0 +1,13 @@
+.pdfContainer
+{
+    border:1px solid;
+    
+    margin-top: 3px;
+}
+
+.pdfViewer
+{
+    margin-top:20px;
+    
+    width:100%
+}
