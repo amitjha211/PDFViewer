@@ -43,11 +43,11 @@
             <div class="row">
                 <div class="col-md-3">
                     <ul class="list-group">
-                      <li ng-repeat="file in files" class="list-group-item"><a href="javascript:;" ng-bind="file"></a></li>
+                      <li ng-repeat="file in files" class="list-group-item"><a href="javascript:;" ng-click="setFileName(file)" ng-bind="file"></a></li>
                     </ul>
                 </div>
                 <div class="col-md-9">
-                    <pdf-viewer file="'views/express-sample.pdf'"></pdf-viewer>
+                    <pdf-viewer file="currentFile"></pdf-viewer>
                 </div>
             </div>
             

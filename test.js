@@ -19,15 +19,25 @@ myApp.directive("pdfViewer",function(){
             
             var _pdf = null; 
             
-            PDFJS.getDocument('pdfs/express-sample.pdf').then(function(pdf) {
-                // you can now use *pdf* here
-                _pdf = pdf;
-                $scope.totalPages = _pdf.numPages;
-                _viewPage();
-                $scope.$apply();
-                debugger;
-            });  
             
+            var _loadPDF = function(){
+                PDFJS.getDocument($scope.file).then(function(pdf) {
+                    // you can now use *pdf* here
+                    _pdf = pdf;
+                    $scope.totalPages = _pdf.numPages;
+                    _viewPage();
+                    $scope.$apply();
+                });  
+            }
+            
+            $scope.$watch('file',function(){
+                if(($scope.file || '') != '' )
+                {
+                    $scope.currentPage = 1;
+                    _loadPDF();
+                }
+            });
+
             var _viewPage = function(){
                 _pdf.getPage($scope.currentPage).then(function(page) {
                     // you can now use *page* here
@@ -47,6 +57,8 @@ myApp.directive("pdfViewer",function(){
 
                 });
             }
+
+            
             
             $scope.viewPage = function(){
                 _viewPage();
@@ -88,17 +100,19 @@ myApp.controller("pdfViewer_test",function($scope){
 
     
     $scope.title = "PDF Viewer Demo";
-    
-    
+    $scope.currentFile = '';
     $scope.files = ['express-sample.pdf'
                     ,'grunt_pdf_version.pdf'
                     ,'grunt-sample.pdf'
                     ,'nodejs_express_framework.pdf'
                     ,'php_tutorial.pdf'];
+    
+    
+    $scope.setFileName = function(sFileName)
+    {
+        if((sFileName || '') != '')
+            $scope.currentFile = "pdfs/" + sFileName;
+    }
    
-    
-    
-    
-    
 });
 
