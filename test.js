@@ -1,6 +1,45 @@
 var myApp = angular.module("myApp",[]);
 
 
+function clsDragger() {
+ 
+    this.currentTag = null ;
+    this.tags = [];
+    
+    this.currentX = 0;
+    this.currentY = 0;
+    
+    this.add = function(x,y){
+        var f  = { left : x 
+                  , top : y
+                  , width : '20px'
+                  , height : '20px'
+                 };
+        
+        f.left = x;
+        f.top = y;
+
+        this.tags.push(f);
+    }
+    
+    
+    this.test = function(){
+        
+        for(var i =1; i < 3;i++) {
+            var f = { x : "30px"
+                    ,y : (i * 40) + "px"
+                    ,width : "100px"
+                    ,height : "30px"
+                     , text : ""
+                    };
+            
+            f.text = "tag " + i;
+            this.tags.push(f);
+        }
+    }
+    
+    this.test();
+}
 
 myApp.directive("pdfViewer",function(){
     return {
@@ -8,6 +47,8 @@ myApp.directive("pdfViewer",function(){
         ,scope : { file : "=file" }
         , templateUrl : 'views/pdfViewer.html'
         ,controller : function($scope){
+            
+            $scope.drg = new clsDragger();
             
             //variable declaration 
             $scope.currentPage = 1;

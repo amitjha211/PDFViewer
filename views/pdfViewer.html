@@ -29,10 +29,19 @@
         </table>
     </div>
 </div>
+
 <div class="row pdfContainer" >
+     
     <div class="col-md-12">
+         <div ng-repeat="tag in drg.tags"  class="drg" ng-style="{ left : tag.x, top : tag.y, width : tag.width,height : tag.height }">
+            <span ng-bind="tag.text"></span>
+        </div>
+       
+       
         <canvas id="the-canvas" class="pdfViewer">
+           
         </canvas>
+        
         
         <!--
         <div class="pdfViewer">
